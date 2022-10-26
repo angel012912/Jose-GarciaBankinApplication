@@ -36,10 +36,10 @@ This is a project was made as a excercise for the MIT xPro Professional Certific
 * Check all the movements in the account
 * Have an Authorization method for have an admin account
 
+## Application in use
+
+[![Alt text](https://img.youtube.com/vi/mRUkcdzTHL8/0.jpg)](https://www.youtube.com/watch?v=mRUkcdzTHL8)
+
 ## License
 
 This project was made under the MIT License
-
-## Application in use:
-
-![](bank-app.mov)
