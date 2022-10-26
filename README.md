@@ -40,4 +40,6 @@ This is a project was made as a excercise for the MIT xPro Professional Certific
 
 This project was made under the MIT License
 
-Screenshots: Screenshots or a GIF of your project in action.
+## Application in use:
+
+![](bank-app.mov)
