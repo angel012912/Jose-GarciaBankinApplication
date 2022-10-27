@@ -1,0 +1,304 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0", 
+        "title": "Bad Bank API",
+        "description": "API for the FullStack Bad Bank project",
+        "license": {
+            "name": "License: MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "https://angel-garciafllstckbankapp.herokuapp.com",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Users",
+            "description": "Routes for users in the system"
+        },
+        {
+            "name": "Transactions",
+            "description": "Routes for the transactions in the system"
+        },
+        {
+            "name": "Transfers",
+            "description": "Routes to manage a transfer between users"
+        }
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/users/all": {
+            "get": {
+                "tags": ["Users"],
+                "description": "Create a user account",
+                "produces":[
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Users in the Database",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                }
+            }
+        },
+        "/account/create/{name}/{email}/": {
+            "get": {
+                "tags": ["Users"],
+                "description": "Create a user account",
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"name",
+                        "description":"Name of the user you want to add",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "required":"true"
+                    },
+                    {
+                        "in":"path",
+                        "name":"email",
+                        "description":"Email of the user you want to add",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "required":"true"   
+                    }
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User created",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                }
+            }
+        },
+        "/account/info/{email}/": {
+            "get": {
+                "tags": ["Users"],
+                "description": "Get the info of the user account",
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"email",
+                        "description":"Email of the user you want to retrieve the info",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "required":"true"   
+                    }
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Information of the user",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                }
+            }
+        },
+        "/account/transaction/{email}/{type}/{amount}": {
+            "get": {
+                "tags": ["Transactions"],
+                "description": "Insert a transaction",
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"email",
+                        "description":"Email of the user that did the transaction",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "required":"true"   
+                    },
+                    {
+                        "in":"path",
+                        "name":"type",
+                        "description":"Type of transaction",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "required":"true"   
+                    },
+                    {
+                        "in":"path",
+                        "name":"amount",
+                        "description":"Amount of the transaction",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "required":"true"   
+                    }
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transaction saved",
+                        "schema": {
+                            "$ref": "#/definitions/Transaction"
+                        }
+                    }
+                }
+            }
+        },
+        "/account/transactions/{email}": {
+            "get": {
+                "tags": ["Transactions"],
+                "description": "Get all transactions from a specific user",
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"email",
+                        "description":"Email of the user",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "required":"true"   
+                    }
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transactions of the user",
+                        "schema": {
+                            "$ref": "#/definitions/Transaction"
+                        }
+                    }
+                }
+            }
+        },
+        "/transfer/search/{email}": {
+            "get": {
+                "tags": ["Transfer"],
+                "description": "Search for a user to make the transaction",
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"email",
+                        "description":"Email of the user",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "required":"true"   
+                    }
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User info from DB",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                }
+            }
+        },
+        "/transfer/{sender}/{receptor}/{amount}": {
+            "get": {
+                "tags": ["Transfer"],
+                "description": "Make a transfer",
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"sender",
+                        "description":"Email of the user that is sending the money",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "required":"true"   
+                    },
+                    {
+                        "in":"path",
+                        "name":"receptor",
+                        "description":"Email of the user that is receiving the money",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "required":"true"   
+                    },
+                    {
+                        "in":"path",
+                        "name":"amount",
+                        "description":"Amount of money that is sended",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "required":"true"   
+                    }
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success message"
+                    }
+                }
+            }
+        },
+        "/check/{email}/{name}":{
+            "get": {
+                "tags":["Users"],
+                "description": "Checks for a user in the Database, if none insert it",
+                "produces":[
+                    "application/json"
+                ],
+                "responses":{
+                    "200":{
+                        "description": "User in database or added"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "User": {
+            "required": ["name","email"],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                }
+            }
+        },
+        "Transaction":{
+            "required": ["email", "type", "amount"],
+            "properties":{
+                "email":{
+                    "type":"string"
+                },
+                "type":{
+                    "type":"string"
+                },
+                "amount":{
+                    "type":"string"
+                }
+            }
+        }
+    }
+}
