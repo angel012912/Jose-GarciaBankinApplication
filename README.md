@@ -1,4 +1,4 @@
-# <p align="center"> Banking Application </p>
+# <img src="https://globalalumni.xpro.mit.edu/wp-content/uploads/2020/03/main-nav-logo.png" alt="MIT xPRO Logo" style="float: center; margin-right: 50px;" width="200"/> <p align="center"> Banking Application </p>
 
 ## Description
 This is a project was made as a excercise for the MIT xPro Professional Certificate in FullStack Development. This project has the aim to implement all the MERN stack in one integral development. 
